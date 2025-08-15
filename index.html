@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video Call App</title>
+</head>
+<body>
+  <h2>Video Call</h2>
+  <video id="localVideo" autoplay playsinline muted></video>
+  <video id="remoteVideo" autoplay playsinline></video>
+
+  <div>
+    <button id="startCall">Crea stanza</button>
+    <input id="roomIdInput" placeholder="ID stanza">
+    <button id="joinCall">Unisciti</button>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
