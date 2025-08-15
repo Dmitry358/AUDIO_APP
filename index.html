@@ -1,19 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Video Call App</title>
+  <meta charset="UTF-8">
+  <title>AUDIO-APP</title>
+  <style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centra verticalmente */
+    align-items: center;     /* centra orizzontalmente */
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(to right, #0f2027, #2c5364, #0f2027);
+  }
+
+  video {
+    width: 300px;
+    max-width: 90vw;
+    margin: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: black;
+  }
+
+  div {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  input, button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+  </style>
+
 </head>
 <body>
-  <h2>Video Call</h2>
   <video id="localVideo" autoplay playsinline muted></video>
   <video id="remoteVideo" autoplay playsinline></video>
-
   <div>
-    <button id="startCall">Crea stanza</button>
+    <button id="startCall">Создать комнату</button>
     <input id="roomIdInput" placeholder="ID stanza">
-    <button id="joinCall">Unisciti</button>
+    <button id="joinCall">Присоединиться</button>
   </div>
-
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
   <script src="main.js"></script>

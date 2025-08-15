@@ -4,3 +4,5 @@
     ".write": "now < 1757800800000",  // 2025-9-14
   }
 }
+
+python -m http.server 8000
