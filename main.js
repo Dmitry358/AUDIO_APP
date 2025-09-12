@@ -61,14 +61,29 @@ function listenForIceCandidates(roomRef, pc) {
   });
 }
 
+// Riferimenti agli elementi per l'ID stanza
+const roomIdDisplay = document.getElementById('roomIdDisplay');
+const copyRoomIdBtn  = document.getElementById('copyRoomId');
+
+// Pulsante per copiare l'ID negli appunti
+copyRoomIdBtn.addEventListener('click', () => {
+  const id = roomIdDisplay.value.trim();
+  if (!id) return;
+  navigator.clipboard.writeText(id)
+    .then(() => alert('ID stanza copiato negli appunti'))
+    .catch(err => alert('Errore copia: ' + err));
+});
+
+// --- Modifica nella funzione di creazione stanza ---
 document.getElementById('startCall').onclick = async () => {
   try {
     await setupLocalMedia();
 
     const roomRef = database.ref('rooms').push();
     const roomId = roomRef.key;
-    console.log("Creazione stanza con ID:", roomId);
-    alert("ID stanza: " + roomId);
+
+    // Mostra l’ID nel campo in alto
+    roomIdDisplay.value = roomId;
 
     peerConnection = new RTCPeerConnection(servers);
 
